@@ -56,13 +56,13 @@ public:
 	//Overload operator= move-assingment
 	MyString& operator = (MyString&& other) noexcept
 	{
-		if (this->str != nullptr)
+		if (str != nullptr)
 		{
-			delete[] this->str;
+			delete[] str;
 		}
 
-		this->length = other.length;
-		this->str = other.str;
+		length = other.length;
+		str = other.str;
 		other.str = nullptr;
 
 		return *this;
@@ -146,9 +146,9 @@ public:
 
 
 private:
-	char* str;
+	char* str = nullptr;
 
-	size_t length;
+	size_t length = 0;
 
 	void CreateString(const char* string)
 	{
